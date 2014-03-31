@@ -22,7 +22,6 @@ endif
 
 function! ctrlp#vimpatches#init()
   let res = webapi#http#get("http://vim-jp.herokuapp.com/patches/json?count=2000")
-	let g:hoge = res
   let s:list = webapi#json#decode(res.content)
   return map(copy(s:list), 'v:val.title . " " . v:val.description')
 endfunc
